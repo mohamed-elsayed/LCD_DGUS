@@ -1,3 +1,11 @@
+/*
+ * DGUS.h
+ *
+ *  Created on: 2010-09-04
+ *       Autor: Bartosz Bilas & Arkadiusz Kierkicz
+ *       E-mail: bartez942@gmail.com & arkonosze@tlen.pl
+ */
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdlib.h>
