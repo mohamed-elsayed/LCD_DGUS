@@ -17,3 +17,4 @@ int 	bin16_to_dec(int bin[]);
 void 	change_display(int display);
 void 	read_number_of_display(void);
 void 	read_variable(unsigned char adress);
+void 	show_animation(int start, int finish);

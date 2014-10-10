@@ -36,7 +36,7 @@ void dec_to_bin(int liczba, int bin[])
 		liczba = liczba/2;
 	}
 	for( ; i < 16; i++)
-	bin[i] = 0;
+		bin[i] = 0;
 }
 
 void dec_to_8bin(int liczba, int bin[])
@@ -48,7 +48,7 @@ void dec_to_8bin(int liczba, int bin[])
 		liczba = liczba/2;
 	}
 	for( ; i < 8; i++)
-	bin[i] = 0;
+		bin[i] = 0;
 }
 
 int bin_to_dec(int bin[])
@@ -59,9 +59,9 @@ int bin_to_dec(int bin[])
 	for(i = 0; i < 8; i++)
 	{
 		if(bin[i] == 1 && i == 0)
-		int_ret++;
+			int_ret++;
 		if(bin[i] == 1 && i > 0)
-		int_ret = int_ret + (power(2,i));
+			int_ret = int_ret + (power(2,i));
 	}
 	return int_ret;
 }
@@ -75,10 +75,10 @@ void dg_send_int(int adres,int liczba)
 	int int_2;
 	uint8_t i = 0;
 	uint8_t j = 0;
-	
+
 	dec_to_bin(liczba,bin);
 	for(i = 0; i < 8; i++)
-	bin_1[i] = bin[i];
+		bin_1[i] = bin[i];
 	for(j = 0; i < 16; i++)
 	{
 		bin_2[j] = bin[i];
@@ -114,9 +114,9 @@ int bin16_to_dec(int bin[])
 	for(i = 0; i < 16; i++)
 	{
 		if(bin[i] == 1 && i == 0)
-		int_ret++;
+			int_ret++;
 		if(bin[i] == 1 && i > 0)
-		int_ret = int_ret + (power(2,i));
+			int_ret = int_ret + (power(2,i));
 	}
 	return int_ret;
 }
@@ -172,4 +172,18 @@ void read_variable(unsigned char adress){
 	USART_hex(0x00);
 	USART_hex(adress);
 	USART_hex(0x01);
+}
+
+void show_animation(int start, int finish){
+	int i;
+	for(i=start;i<=finish;i++){
+		USART_hex(0x5A);
+		USART_hex(0xA5);
+		USART_hex(0x04);
+		USART_hex(0x80);
+		USART_hex(0x03);
+		USART_hex(0x00);
+		USART_dec(i);
+		_delay_ms(100);
+	}
 }
