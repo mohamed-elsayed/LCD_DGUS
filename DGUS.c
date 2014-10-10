@@ -146,21 +146,30 @@ int dg_to_int(int liczba_1,int liczba_2)
 }
 
 void change_display(int display){
-		USART_hex(0x5A);
-		USART_hex(0xA5);
-		USART_dec(4);
-		USART_hex(0x80);
-		USART_hex(0x03);
-		USART_hex(0x00);
-		USART_dec(display);
-
+	USART_hex(0x5A);
+	USART_hex(0xA5);
+	USART_dec(4);
+	USART_hex(0x80);
+	USART_hex(0x03);
+	USART_hex(0x00);
+	USART_dec(display);
 }
 
 void read_number_of_display(void){
-		USART_hex(0x5A);
-		USART_hex(0xA5);
-		USART_dec(3);
-		USART_hex(0x81);
-		USART_hex(0x03);
-		USART_hex(0x02);
+	USART_hex(0x5A);
+	USART_hex(0xA5);
+	USART_dec(3);
+	USART_hex(0x81);
+	USART_hex(0x03);
+	USART_hex(0x02);
+}
+
+void read_variable(unsigned char adress){
+	USART_hex(0x5A);
+	USART_hex(0xA5);
+	USART_hex(0x04);
+	USART_hex(0x83);
+	USART_hex(0x00);
+	USART_hex(adress);
+	USART_hex(0x01);
 }

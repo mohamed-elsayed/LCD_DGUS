@@ -16,3 +16,4 @@ int 	dg_to_int(int liczba_1,int liczba_2);
 int 	bin16_to_dec(int bin[]);
 void 	change_display(int display);
 void 	read_number_of_display(void);
+void 	read_variable(unsigned char adress);
