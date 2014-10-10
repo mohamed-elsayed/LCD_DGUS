@@ -2,8 +2,8 @@
  * DGUS.h
  *
  *  Created on: 2014-10-10
- *  Autor: Bartosz Bilas & Arkadiusz Kierkicz
- *  E-mail: bartez942@gmail.com & arkonosze@tlen.pl
+ *  Authors: Bartosz Bilas & Arkadiusz Kierkicz
+ *  E-mail: bartez942@gmail.com & arkonosze@gmail.com
  */
 
 void 	USART_hex( unsigned char data );

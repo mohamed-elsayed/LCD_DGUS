@@ -2,8 +2,8 @@
  * DGUS.h
  *
  *  Created on: 2010-09-04
- *       Autor: Bartosz Bilas & Arkadiusz Kierkicz
- *       E-mail: bartez942@gmail.com & arkonosze@tlen.pl
+ *  Authors: Bartosz Bilas & Arkadiusz Kierkicz
+ *  E-mail: bartez942@gmail.com & arkonosze@gmail.com
  */
 
 #include <avr/io.h>
