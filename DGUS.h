@@ -6,22 +6,33 @@
  *  E-mail: bartez942@gmail.com & arkonosze@gmail.com
  */
 
-void 	USART_hex( unsigned char data );
-void 	USART_dec( int data );
-void	dec_to_bin(int liczba,int bin[]);
-int		bin_to_dec(int bin[]);
-void 	dg_send_int(int adres,int liczba);
-int 	power(int base,int n);
-int 	dg_to_int(int liczba_1,int liczba_2);
-int 	bin16_to_dec(int bin[]);
-void 	change_display(int display);
-void 	read_number_of_display(void);
-void 	read_variable(unsigned char adress);
-void 	show_animation(int start, int finish);
-void 	change_display_rs485(int display);
-void 	read_number_of_display_rs485(void);
-void 	read_variable_rs485(unsigned char adress);
-void 	show_animation_rs485(int start, int finish);
-void 	USART_dec_rs485( int data );
-void 	USART_hex_rs485( unsigned char data );
-void 	dg_send_int_rs485(int adres,int liczba);
+#define 	UART_BAUD 115200	// baud rate
+#define 	__UBRR F_CPU/16/UART_BAUD-1  // UBRR for U2X=0
+
+#define UART_RX_BUF_SIZE 32 // buffer size of 32 bytes
+#define 	UART_RX_BUF_MASK ( UART_RX_BUF_SIZE - 1) // mask for our buffer
+
+#define 	UART_TX_BUF_SIZE 16 //  buffer size of 16 bytes
+#define 	UART_TX_BUF_MASK ( UART_TX_BUF_SIZE - 1) // mask for our buffer
+
+// Initialization
+
+void 		USART_Init( uint16_t baud );
+
+//Conversion
+void		dec_to_bin(int32_t decimal, uint8_t binary[]);
+int32_t 	bin_to_dec(uint8_t binary[]);
+int16_t 	power(uint8_t base,uint8_t n);
+
+
+//Transfer
+void 		USART_hex( unsigned char data );
+void 		USART_dec( int data );
+
+//Communication
+void		dg_send_int(char address[],int16_t decimal);
+void		dg_send_lint(char address[],int32_t decimal);
+void 		change_display(uint16_t display);
+uint16_t 	read_display_number(void);
+int16_t		read_int(char address[]);
+void 		show_animation(int start, int finish);
